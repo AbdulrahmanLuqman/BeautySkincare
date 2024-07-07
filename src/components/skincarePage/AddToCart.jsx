@@ -1,0 +1,58 @@
+import { Link } from "react-router-dom"
+import productImage from "../../assets/productsImage/abbottCream.png"
+
+export const AddToCart = ()=>{
+    return(
+        <main>
+            <section className="px-[200px] py-[50px] flex items-center gap-[200px]">
+                <img src={productImage} alt="cream" />
+                <div className="space-y-10">
+                    <div className="flex items-center gap-[13px]">
+                        <div className="flex gap-[5px] items-center">
+                            <Link className="text-[#A8A4A4] text-[14px]">HOME</Link>
+                            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.20011 1.09998L3.36011 1.99998L7.80011 6.49998L3.36011 11L4.20011 11.9L9.60011 6.49998L4.20011 1.09998Z" fill="#A8A4A4"/></svg>
+                        </div>
+
+                        <div className="flex gap-[5px] items-center">
+                            <Link className="text-[#A8A4A4] text-[14px]">SKINCARE</Link>
+                            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.20011 1.09998L3.36011 1.99998L7.80011 6.49998L3.36011 11L4.20011 11.9L9.60011 6.49998L4.20011 1.09998Z" fill="#A8A4A4"/></svg>
+                        </div>
+
+                        <div className="flex gap-[5px] items-center">
+                            <Link className="text-[#A8A4A4] text-[14px]">FACE TREATMENT</Link>
+                            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.20011 1.09998L3.36011 1.99998L7.80011 6.49998L3.36011 11L4.20011 11.9L9.60011 6.49998L4.20011 1.09998Z" fill="#A8A4A4"/></svg>
+                        </div>
+                    </div>
+                    <div className="space-y-8">
+                        <div className="space-y-4">
+                            <h2 className="text-[36px] text-[#4A4949] leading-[34px] font-[500]">Hydroquinone Cream USP 30g Sol de Janeiro Cheirosa ’71</h2>
+                            <p className="text-[#4A4949] leading-[24px]">Experience a luxurious warmth with this inviting scent that’s like a cashmere comforter for your nose.</p>
+                            <p className="text-[23.33px] font-[600]"># 10,000</p>
+                        </div>
+                        <div className="space-y-4">
+                            <div className="bg-[#611750] w-full py-[4px] px-[8px] flex items-center gap-10 rounded-[3px]">
+                                <div className="bg-[#FFFFFF] flex gap-4 items-center py-[8px] px-[6px]">
+                                    <button className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6">-</button>
+                                    <span>1</span>
+                                    <button className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6">+</button>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <p className="text-[#FFFFFF] font-semibold">ADD TO CART</p>
+                                    <p className="text-[#FFFFFF] font-bold"># 10,000</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-[6px]">
+                                <svg className="cursor-pointer" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.99999 3.82922C9.092 2.9943 7.9035 2.53092 6.66999 2.53088C6.01711 2.53156 5.37081 2.66135 4.76828 2.91277C4.16574 3.1642 3.61888 3.5323 3.15916 3.99588C1.19833 5.96505 1.19916 9.04505 3.16083 11.0059L9.27083 17.1159C9.41249 17.3651 9.68583 17.5259 9.99999 17.5259C10.129 17.5246 10.2559 17.4931 10.3705 17.4339C10.4851 17.3748 10.5843 17.2895 10.66 17.1851L16.8392 11.0059C18.8008 9.04422 18.8008 5.96505 16.8375 3.99255C16.378 3.52981 15.8316 3.16246 15.2296 2.91162C14.6277 2.66078 13.9821 2.53138 13.33 2.53088C12.0965 2.53109 10.9081 2.99444 9.99999 3.82922ZM15.6592 5.17088C16.9617 6.48005 16.9625 8.52505 15.6608 9.82755L9.99999 15.4884L4.33916 9.82755C3.03749 8.52505 3.03833 6.48005 4.33749 5.17422C4.97083 4.54422 5.79916 4.19755 6.66999 4.19755C7.54083 4.19755 8.36583 4.54422 8.99416 5.17255L9.41083 5.58922C9.48815 5.66667 9.57999 5.72812 9.68108 5.77005C9.78218 5.81197 9.89055 5.83355 9.99999 5.83355C10.1094 5.83355 10.2178 5.81197 10.3189 5.77005C10.42 5.72812 10.5118 5.66667 10.5892 5.58922L11.0058 5.17255C12.2658 3.91505 14.4008 3.91838 15.6592 5.17088Z" fill="#111010"/></svg>
+                                <span>ADD TO WISHLIST</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p className="text-[#A8A4A4] text-[14px]">SKU: Rbs-1-716</p>
+                            <p className="text-[#A8A4A4] text-[14px]">Categories: Skincare, Face Treatment</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    )
+} 
