@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { Product } from "./Product"
 import productImage from "../../assets/productsImage/abbottCream.png"
 
 export const AddToCart = ()=>{
@@ -52,6 +53,10 @@ export const AddToCart = ()=>{
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section>
+                <Product />
             </section>
         </main>
     )

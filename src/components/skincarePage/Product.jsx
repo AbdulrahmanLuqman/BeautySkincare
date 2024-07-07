@@ -1,6 +1,11 @@
 import {productsData} from "../../data/skincareProductData"
+import { useNavigate } from "react-router-dom"
 
 export const Product = ()=>{
+    const navigate = useNavigate()
+    const addToCart = ()=>{
+        navigate("/skincare/add-to-cart")
+    }
     const StarSvg = ()=>(
         <svg className="cursor-pointer" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.79003 1.10742C6.89548 0.782867 7.35464 0.782868 7.46009 1.10742L8.40204 4.00645C8.59068 4.58702 9.13171 4.9801 9.74216 4.9801H12.7904C13.1316 4.9801 13.2735 5.41679 12.9974 5.61737L10.5314 7.40907C10.0375 7.76789 9.83086 8.4039 10.0195 8.98448L10.9615 11.8835C11.0669 12.2081 10.6954 12.4779 10.4194 12.2774L7.9533 10.4857C7.45943 10.1268 6.79068 10.1268 6.29681 10.4857L3.83076 12.2774C3.55467 12.4779 3.18321 12.2081 3.28866 11.8835L4.23061 8.98448C4.41925 8.4039 4.2126 7.76789 3.71873 7.40907L1.25267 5.61737C0.976591 5.41679 1.11848 4.9801 1.45973 4.9801H4.50795C5.1184 4.9801 5.65943 4.58702 5.84807 4.00645L6.79003 1.10742Z" fill="white" stroke="#FFC3BB" stroke-width="1.05682"/></svg>
     )
@@ -10,7 +15,7 @@ export const Product = ()=>{
             <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[26px]">
                 {
                     productsData.map((product) => (
-                        <div key={product.index} className="w-full h-[426px] bg-[#FFFFFF] shadow-lg shadow-gray-500/40 rounded-[10px] py-6 px-4 relative flex flex-col justify-between items-center">
+                        <div onClick={addToCart} key={product.index} className="w-full cursor-pointer h-[426px] bg-[#FFFFFF] shadow-lg shadow-gray-500/40 rounded-[10px] py-6 px-4 relative flex flex-col justify-between items-center">
                             <svg className="absolute top-4 bg-[#F8F8F8] hover:bg-[#94939340] p-[8px] rounded-[50%] right-4 cursor-pointer" width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.1599 4.20571C9.31204 3.42612 8.2023 2.99344 7.05053 2.99341C6.44091 2.99404 5.83744 3.11523 5.27483 3.34999C4.71223 3.58476 4.2016 3.92846 3.77235 4.36133C1.94145 6.20001 1.94223 9.07591 3.7739 10.9068L9.47902 16.6119C9.6113 16.8446 9.86652 16.9948 10.1599 16.9948C10.2803 16.9936 10.3988 16.9642 10.5058 16.9089C10.6129 16.8537 10.7055 16.7741 10.7761 16.6765L16.5458 10.9068C18.3775 9.07514 18.3775 6.20001 16.5443 4.35822C16.1152 3.92614 15.605 3.58314 15.043 3.34891C14.4809 3.11469 13.8781 2.99387 13.2692 2.99341C12.1175 2.9936 11.0078 3.42625 10.1599 4.20571ZM15.444 5.45847C16.6602 6.68088 16.661 8.59037 15.4456 9.80656L10.1599 15.0923L4.87415 9.80656C3.65874 8.59037 3.65952 6.68088 4.8726 5.46158C5.46396 4.87333 6.23741 4.54963 7.05053 4.54963C7.86366 4.54963 8.63399 4.87333 9.22069 5.46003L9.60975 5.84908C9.68195 5.9214 9.7677 5.97878 9.86209 6.01793C9.95649 6.05708 10.0577 6.07723 10.1599 6.07723C10.2621 6.07723 10.3633 6.05708 10.4577 6.01793C10.552 5.97878 10.6378 5.9214 10.71 5.84908L11.0991 5.46003C12.2756 4.28585 14.2691 4.28897 15.444 5.45847Z" fill="#949393"/></svg>
                             <img src={product.image} alt={product.name} />
                             
