@@ -1,27 +1,33 @@
-[
+
+export const productsData = [
     {
-        image: "../assets/abbottCream.png",
+        index: 0,
+        image: "src/assets/productsImage/abbottCream.png",
         name: "Abbott Rx Hydroquinone Cream USP",
         price: "# 10,000"
     },
     {
-        image: "../assets/abbottCream.png",
+        index: 1,
+        image: "../assets/productsImage/abbottCream.png",
         name: "Abbott Rx Hydroquinone Cream USP",
         price: "# 10,000"
     },
     {
-        image: "../assets/abbottCream.png",
+        index: 2,
+        image: "../assets/productsImage/abbottCream.png",
         name: "Abbott Rx Hydroquinone Cream USP",
         price: "# 10,000"
     },
     {
-        image: "../assets/abbottCream.png",
+        index: 3,
+        image: "../assets/productsImage/abbottCream.png",
         name: "Abbott Rx Hydroquinone Cream USP",
         price: "# 10,000"
     },
     {
-        image: "../assets/abbottCream.png",
+        index: 4,
+        image: "../assets/productsImage/abbottCream.png",
         name: "Abbott Rx Hydroquinone Cream USP",
         price: "# 10,000"
     }
-]
+];
