@@ -5,7 +5,7 @@ import productImage from "../../assets/productsImage/abbottCream.png"
 export const AddToCart = ()=>{
     return(
         <main>
-            <section className="px-[200px] py-[50px] flex items-center gap-[200px]">
+            <section className="bg-[#FFFFFF] px-[200px] py-[50px] flex items-center gap-[200px]">
                 <img src={productImage} alt="cream" />
                 <div className="space-y-10">
                     <div className="flex items-center gap-[13px]">
@@ -37,7 +37,7 @@ export const AddToCart = ()=>{
                                     <span>1</span>
                                     <button className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6">+</button>
                                 </div>
-                                <div className="flex items-center gap-4">
+                                <div tabIndex={0} className="flex cursor-pointer items-center gap-4">
                                     <p className="text-[#FFFFFF] font-semibold">ADD TO CART</p>
                                     <p className="text-[#FFFFFF] font-bold"># 10,000</p>
                                 </div>
