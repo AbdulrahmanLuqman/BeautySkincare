@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import productImage from "../../assets/productsImage/abbottCream.png"
-import { Product } from "./Product"
+import productImage from "../assets/productsImage/abbottCream.png"
+import { Product } from "./skincarePage/Product"
 
 export const ItemsAdded = ()=>{
     return(
@@ -17,7 +17,7 @@ export const ItemsAdded = ()=>{
                 </div>
             </div>
             <h2 className="text-[28px] font-[500]">YOUR CART</h2>
-            <div className="flex gap-20 border-b">
+            <div className="flex gap-20 border-b pb-10">
                 <div>
                     <div className="flex bg-[#FAFAFA] gap-[400px] py-[24px] pl-[10px] pr-[42px] w-fit">
                         <h3 className="text-[14px] font-[500] text-[#4A4949]">PRODUCT</h3>
