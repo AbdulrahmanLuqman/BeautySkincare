@@ -1,18 +1,29 @@
 import { FaSearch } from "react-icons/fa"
 import Logo from "../assets/logo.png"
+import mobileLogo from "../assets/mobile-logo.png"
 import { Navbar } from "./Navbar"
+import { useState } from "react"
 
 export const Header = ()=>{
+    const [isNavOut, setIsNavOut] = useState(false)
+    const openNav = ()=>{
+        setIsNavOut(!isNavOut === true)
+    }
     return(
         <header>
-            <div className="bg-[#FDE2DF] py-[20px] px-[77px] flex justify-between items-center">
-                <div title="search bar" className="flex gap-[10px] items-center bg-[#FFFFFF] w-fit border border-[#BCBBBB] w-[291px] h-[41px] rounded-[10px] py-[2px] px-[19px]">
+            <div className="bg-[#FDE2DF] py-[20px] px-[77px] max-[1074px]:px-[50px] max-[875px]:px-[20px] flex justify-between items-center">
+                <div title="search bar" className="flex gap-[10px] items-center bg-[#FFFFFF] w-fit border border-[#BCBBBB] w-[291px] h-[41px] rounded-[10px] py-[2px] px-[19px] max-[875px]:hidden">
                     <FaSearch className="text-[#BCBBBB]"/>
                     <input type="text" className="w-full h-full outline-none border-none bg-transparent text-[#BCBBBB]" placeholder="Skincare Products..." />
                 </div>
+                <div className="flex gap-[28px] min-[875px]:hidden">
+                    <svg onClick={openNav} className="cursor-pointer" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.4375 5.9375H16.5625M3.4375 10H16.5625M3.4375 14.0625H16.5625" stroke="black" stroke-miterlimit="10" stroke-linecap="round"/></svg>
+                    <svg className="cursor-pointer" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.8395 16.4605L14.1641 12.7852C15.049 11.6072 15.5266 10.1733 15.525 8.7C15.525 4.93672 12.4633 1.875 8.7 1.875C4.93672 1.875 1.875 4.93672 1.875 8.7C1.875 12.4633 4.93672 15.525 8.7 15.525C10.1733 15.5266 11.6072 15.049 12.7852 14.1641L16.4605 17.8395C16.6466 18.0058 16.8893 18.0945 17.1387 18.0876C17.3881 18.0806 17.6255 17.9784 17.8019 17.8019C17.9784 17.6255 18.0806 17.3881 18.0876 17.1387C18.0945 16.8893 18.0058 16.6466 17.8395 16.4605ZM3.825 8.7C3.825 7.73582 4.11091 6.79329 4.64659 5.9916C5.18226 5.18991 5.94363 4.56506 6.83442 4.19609C7.72521 3.82711 8.70541 3.73057 9.65107 3.91867C10.5967 4.10678 11.4654 4.57107 12.1471 5.25285C12.8289 5.93464 13.2932 6.80328 13.4813 7.74894C13.6694 8.69459 13.5729 9.67479 13.2039 10.5656C12.8349 11.4564 12.2101 12.2177 11.4084 12.7534C10.6067 13.2891 9.66418 13.575 8.7 13.575C7.40755 13.5735 6.16847 13.0593 5.25457 12.1454C4.34066 11.2315 3.82655 9.99246 3.825 8.7Z" fill="#1E1E1E"/></svg>
+                </div>
 
                 <div>
-                    <img src={Logo} alt="Logo" />
+                    <img className="block max-[875px]:hidden" src={Logo} alt="Logo" />
+                    <img className="block min-[875px]:hidden" src={mobileLogo} alt="Logo" />
                 </div>
 
                 <div className="flex gap-[28px]">
@@ -22,7 +33,9 @@ export const Header = ()=>{
                 </div>
             </div>
 
-            <Navbar />
+            <Navbar isNavOut={isNavOut} />
+
+            {/* <div className="abolute top-0 opacity-50 bg-black w-full h-screen"></div> */}
         </header>
     )
 }
