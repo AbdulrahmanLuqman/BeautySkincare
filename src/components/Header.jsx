@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa"
-import Logo from "../assets/logo.png"
-import mobileLogo from "../assets/mobile-logo.png"
+import Logo from "../images/logo.png"
+import mobileLogo from "../images/mobile-logo.png"
 import { Navbar } from "./Navbar"
 import { useState } from "react"
 

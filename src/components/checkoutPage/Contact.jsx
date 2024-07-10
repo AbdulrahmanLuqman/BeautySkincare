@@ -1,5 +1,5 @@
-import visa from "../../assets/visa.png"
-import product from "../../assets/productsImage/joesonMilk.png"
+import visa from "../../images/visa.png"
+import product from "../../images/joesonMilk.png"
 
 export const Contact = ()=>{
     return(

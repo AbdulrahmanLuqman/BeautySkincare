@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import productImage from "../assets/productsImage/abbottCream.png"
+import product from "../images/joesonMilk.png"
 import { Product } from "./skincarePage/Product"
 
 export const ItemsAdded = ()=>{
@@ -30,14 +30,14 @@ export const ItemsAdded = ()=>{
                     <div className="flex gap-[100px] max-[972px]:gap-[50px] py-[24px] pl-[10px] w-fit max-[972px]:items-center  max-[391px]:flex-col">
                         <div className="flex items-center gap-6 max-[972px]:flex-col">
                             <figure>
-                                <img width={120} src={productImage} alt="product" />
+                                <img width={120} src={product} alt="product" />
                             </figure>
                             <figcaption>
                                 <p className="text-[#4A4949] font-[600]">Hydroquinone Cream USP 30g </p>
                                 <p className="text-[12px] font-[#5B5959]">For External use Only</p>
                             </figcaption>
                         </div>
-                        <div className="flex items-center gap-[75px] max-[972px]:flex-col max-[972px]:gap-[20px]">
+                        {/* <div className="flex items-center gap-[75px] max-[972px]:flex-col max-[972px]:gap-[20px]">
                             <p className="text-[14px] font-[500] text-[#4A4949]"> <span className="hidden max-[972px]:inline">Price: </span> # 10,000</p>
                             <div className="bg-[#FFFFFF] border border-[#A8A4A49E] rounded-[20px] flex gap-2 items-center py-[5px] px-[6px]">
                                 <button className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6 text-[14px]">-</button>
@@ -45,7 +45,7 @@ export const ItemsAdded = ()=>{
                                 <button className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6 text-[14px]">+</button>
                             </div>
                             <p className="text-[14px] font-[500] text-[#4A4949]"><span className="hidden max-[972px]:inline">Total: </span> # 10,000</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="space-y-4 max-[1235px]:w-[400px] max-[442px]:w-full">
@@ -58,7 +58,7 @@ export const ItemsAdded = ()=>{
                         <p className="text-[18px] text-[#4A4949] font-[500]">Total</p>
                         <p className="text-[18px] text-[#4A4949] font-[600]"># 10,000</p>
                     </div>
-                    <button className="text-[11px] w-full bg-[#FFC3BB] hover:bg-[#FFC3BB90] py-2 text-center font-[600] text-[11px] rounded-[8px]">PROCEED TO CHECK OUT</button>
+                    <Link to="/checkout"><button className="text-[11px] w-full bg-[#FFC3BB] hover:bg-[#FFC3BB90] py-2 text-center font-[600] text-[11px] rounded-[8px]">PROCEED TO CHECK OUT</button></Link>
                     <button className="text-[11px] w-full border border-[#FFC3BB] hover:bg-[#FFC3BB90] py-2 text-center font-[600] text-[11px] rounded-[8px]">CONTINUE SHOPPING</button>
                 </div>
             </div>

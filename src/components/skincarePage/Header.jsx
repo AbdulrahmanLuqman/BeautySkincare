@@ -1,5 +1,5 @@
 import React from "react"
-import background from "../../assets/productsImage/skincareBg.png"
+import background from "../../images/skincareBg.png"
 
 export const Header = ()=>{
     return(

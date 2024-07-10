@@ -1,5 +1,6 @@
-import background from "../../assets/productsImage/skincareBg.png"
-import logo from "../../assets/logo-white.png"
+import background from "../../images/skincareBg.png"
+import logo from "../../images/logo-white.png"
+
 
 
 export const Header = ()=>{
