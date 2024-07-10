@@ -5,7 +5,7 @@ import { Product } from "./skincarePage/Product"
 export const ItemsAdded = ()=>{
     return(
         <main>
-            <section className="px-[77px] space-y-8">
+            <section className="px-[77px] max-[1074px]:px-[50px] max-[875px]:px-[20px] space-y-8">
             <div className="flex items-center gap-[15px]">
                 <div className="flex items-center gap-[5px]">
                     <Link className="text-[#A8A4A4] text-[14px]">Skincare</Link>
@@ -17,9 +17,9 @@ export const ItemsAdded = ()=>{
                 </div>
             </div>
             <h2 className="text-[28px] font-[500]">YOUR CART</h2>
-            <div className="flex gap-20 border-b pb-10">
-                <div>
-                    <div className="flex bg-[#FAFAFA] gap-[400px] py-[24px] pl-[10px] pr-[42px] w-fit">
+            <div className="flex gap-20 border-b pb-10 max-[1235px]:flex-col max-[972px]:flex-row max-[581px]:flex-col">
+                <div className="">
+                    <div className="flex bg-[#FAFAFA] gap-[400px] py-[24px] pl-[10px] pr-[42px] w-fit max-[972px]:hidden">
                         <h3 className="text-[14px] font-[500] text-[#4A4949]">PRODUCT</h3>
                         <div className="flex gap-[92px]">
                             <h3 className="text-[14px] font-[500] text-[#4A4949]">PRICE</h3>
@@ -27,8 +27,8 @@ export const ItemsAdded = ()=>{
                             <h3 className="text-[14px] font-[500] text-[#4A4949]">TOTAL</h3>
                         </div>
                     </div>
-                    <div className="flex gap-[100px] py-[24px] pl-[10px] w-fit">
-                        <div className="flex items-center gap-6">
+                    <div className="flex gap-[100px] max-[972px]:gap-[50px] py-[24px] pl-[10px] w-fit max-[972px]:items-center  max-[391px]:flex-col">
+                        <div className="flex items-center gap-6 max-[972px]:flex-col">
                             <figure>
                                 <img width={120} src={productImage} alt="product" />
                             </figure>
@@ -37,18 +37,18 @@ export const ItemsAdded = ()=>{
                                 <p className="text-[12px] font-[#5B5959]">For External use Only</p>
                             </figcaption>
                         </div>
-                        <div className="flex items-center gap-[75px]">
-                            <p className="text-[14px] font-[500] text-[#4A4949]"># 10,000</p>
+                        <div className="flex items-center gap-[75px] max-[972px]:flex-col max-[972px]:gap-[20px]">
+                            <p className="text-[14px] font-[500] text-[#4A4949]"> <span className="hidden max-[972px]:inline">Price: </span> # 10,000</p>
                             <div className="bg-[#FFFFFF] border border-[#A8A4A49E] rounded-[20px] flex gap-2 items-center py-[5px] px-[6px]">
                                 <button className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6 text-[14px]">-</button>
                                 <span className="text-[14px]">1</span>
                                 <button className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6 text-[14px]">+</button>
                             </div>
-                            <p className="text-[14px] font-[500] text-[#4A4949]"># 10,000</p>
+                            <p className="text-[14px] font-[500] text-[#4A4949]"><span className="hidden max-[972px]:inline">Total: </span> # 10,000</p>
                         </div>
                     </div>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-4 max-[1235px]:w-[400px] max-[442px]:w-full">
                     <h2 className="text-[24px] font-[500] text-[#302E2E] border-b border-b-2 border-b-[#302E2E] py-[4px] w-full">ORDER SUMMARY</h2>
                     <div className="border-b py-[6px] w-full flex justify-between">
                         <p className="text-[18px] text-[#4A4949] font-[500]">Subtotal</p>
