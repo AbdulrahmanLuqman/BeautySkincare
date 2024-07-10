@@ -1,7 +1,7 @@
 import { React, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
-export const Navbar = ()=>{
+export const Navbar = (props)=>{
     const location = useLocation()
     const [navLinks, setNavLinks] = useState(
         [
@@ -53,8 +53,8 @@ export const Navbar = ()=>{
         ]
     )
     return(
-        <nav className="w-full px-[77px] py-[31px]">
-            <ul className="flex justify-between">
+        <nav className={`w-full px-[77px] max-[1074px]:px-[50px] max-[875px]:px-[20px] max-[875px]:absolute max-[875px]:bg-[#FDE2DF] max-[875px]: py-[31px] transition-all duration-700 ${!props.isNavOut ? "max-[875px]:left-[900px]" : "left-0"}`}>
+            <ul className="z-[900] flex flex-row justify-between max-[875px]:flex-col max-[875px]:gap-4 max-[875px]:items-center max-[875px]:border max-[875px]:py-5">
                 {
                     navLinks.map((link, index) => (
                         <li key={index}>
