@@ -34,6 +34,7 @@ export const Navbar = (props)=>{
                 navName: "SKINCARE",
                 ariaLabel: "Go to Skincare",
                 goTo: "/skincare"
+                // goTo: ["/skincare", "/skincare/add-to-cart"],
             },
             {
                 navName: "BATH & BODY",
