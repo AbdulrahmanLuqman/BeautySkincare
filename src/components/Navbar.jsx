@@ -54,7 +54,7 @@ export const Navbar = (props)=>{
         ]
     )
     return(
-        <nav className={`w-full px-[77px] max-[1074px]:px-[50px] max-[875px]:px-[20px] max-[875px]:absolute max-[875px]:bg-[#FDE2DF] max-[875px]: py-[31px] transition-all duration-700 ${!props.isNavOut ? "max-[875px]:left-[9000px]" : "left-0"}`}>
+        <nav className={`w-full px-[77px] max-[1074px]:px-[50px] max-[875px]:px-[20px] max-[875px]:fixed max-[875px]:bg-[#FDE2DF] max-[875px]:z-[900] max-[875px]:top-14 py-[31px] transition-all duration-700 ${!props.isNavOut ? "max-[875px]:left-[9000px]" : "left-0"}`}>
             <ul className="z-[900] flex flex-row justify-between max-[875px]:flex-col max-[875px]:gap-4 max-[875px]:items-center max-[875px]:border max-[875px]:py-5">
                 {
                     navLinks.map((link, index) => (
