@@ -18,10 +18,7 @@ export const AddToCart = ()=>{
         setQuantity(q => q + 1)
     }
     const decreaseQuantity = ()=>{
-        if(quantity <= 0){
-            setQuantity(1)
-        }
-        setQuantity(q => q - 1)
+        setQuantity(q => (q > 1 ? q - 1 : 1))
     }
     const { itemsAdded, setItemsAdded } = useContext(ItemsContext);
 
