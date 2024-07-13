@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import product from "../images/joesonMilk.png"
 import { Product } from "./skincarePage/Product"
 
 export const ItemsAdded = ()=>{
+    const location = useLocation()
+    const itemsAdded = location.state?.itemsAdded || [];
+
+    console.log(itemsAdded)
+
+    // console.log(itemsAdded)
     return(
         <main>
             <section className="px-[77px] max-[1074px]:px-[50px] max-[875px]:px-[20px] space-y-8">
@@ -28,14 +34,21 @@ export const ItemsAdded = ()=>{
                         </div>
                     </div>
                     <div className="flex gap-[100px] max-[972px]:gap-[50px] py-[24px] pl-[10px] w-fit max-[972px]:items-center  max-[391px]:flex-col">
-                        <div className="flex items-center gap-6 max-[972px]:flex-col">
-                            <figure>
-                                <img width={120} src={product} alt="product" />
-                            </figure>
-                            <figcaption>
-                                <p className="text-[#4A4949] font-[600]">Hydroquinone Cream USP 30g </p>
-                                <p className="text-[12px] font-[#5B5959]">For External use Only</p>
-                            </figcaption>
+                        <div className="space-y-4">
+                            {
+                                itemsAdded.map((product, index) => (
+                                    <div className="flex items-center gap-6 max-[972px]:flex-col">
+                                        <figure>
+                                            <img width={120} src={product.photos[0] !== undefined ? `https://api.timbu.cloud/images/${product.photos[0].url}`: ""} alt={product.name} />
+                                        </figure>
+                                        <figcaption>
+                                            <p className="text-[#4A4949] font-[600]">{product.name} </p>
+                                            <p className="text-[12px] font-[#5B5959]">For External use Only</p>
+                                        </figcaption>
+                                    </div>
+                                ))
+                            }
+                            
                         </div>
                         {/* <div className="flex items-center gap-[75px] max-[972px]:flex-col max-[972px]:gap-[20px]">
                             <p className="text-[14px] font-[500] text-[#4A4949]"> <span className="hidden max-[972px]:inline">Price: </span> # 10,000</p>

@@ -108,7 +108,7 @@ export const Contact = ()=>{
                 </form>
             </div>
 
-            <div className="pr-[77px] max-[1105px]:pr-10 pl-[20px] space-y-10 max-[1084px]:w-fit">
+            {/* <div className="pr-[77px] max-[1105px]:pr-10 pl-[20px] space-y-10 max-[1084px]:w-fit">
                 <div className="flex items-center gap-[29px] max-[1327px]:flex-col max-[1084px]:flex-row max-[549px]:flex-col">
                     <img src={product} alt="product" />
                     <div className="flex max-[413px]:flex-col items-center gap-[29px] ">
@@ -139,7 +139,7 @@ export const Contact = ()=>{
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </section>
     )
 }

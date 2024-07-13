@@ -1,12 +1,17 @@
+import {React, useState, useContext} from "react"
+
 import { Link } from "react-router-dom"
+
 import { Product } from "./Product"
-import { useLocation } from "react-router-dom"
-import { useState } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
+import { ItemsContext } from "../../ItemsContext";
 
 export const AddToCart = ()=>{
     const location = useLocation()
+    const navigate = useNavigate()
     const product = location.state.product
     const [quantity, setQuantity] = useState(1)
+    // const [itemsAdded, setItemsAdded] = useState([])
 
     const increaseQuantity = ()=>{
         
@@ -18,12 +23,17 @@ export const AddToCart = ()=>{
         }
         setQuantity(q => q - 1)
     }
+    const { itemsAdded, setItemsAdded } = useContext(ItemsContext);
 
-    console.log(product)
+    const ItemsAdded = () => {
+        const updatedItems = [...itemsAdded, product];
+        setItemsAdded(updatedItems);
+        navigate("/cart", { state: { itemsAdded: updatedItems } });
+    };
     return(
         <main>
             <section className="bg-[#FFFFFF] px-[200px] max-[1206px]:px-[100px] max-[1074px]:px-[50px] max-[875px]:px-[20px] py-[50px] flex flex-row items-center gap-[200px] max-[820px]:flex-col max-[820px]:gap-[100px]">
-                <img src={product.image} alt={product.name} />
+                <img src={product.photos[0] !== undefined ? `https://api.timbu.cloud/images/${product.photos[0].url}` : ""} alt={product.name} />
                 <div className="space-y-10">
                     <div className="flex items-center gap-[13px]">
                         <div className="flex gap-[5px] items-center">
@@ -54,12 +64,12 @@ export const AddToCart = ()=>{
                                     <span>{quantity}</span>
                                     <button onClick={increaseQuantity} className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6 max-[384px]:text-[14px]">+</button>
                                 </div>
-                                <Link to="/cart">
+                                <button onClick={ItemsAdded}>
                                     <div tabIndex={0} className="flex cursor-pointer items-center gap-4">
                                         <p className="text-[#FFFFFF] font-semibold max-[384px]:text-[14px]">ADD TO CART</p>
-                                    <p className="text-[#FFFFFF] font-bold max-[384px]:text-[14px]"><span>#</span>{product.price * quantity}</p>
+                                    <p className="text-[#FFFFFF] font-bold max-[384px]:text-[14px]"><span>#</span>{product.current_price[0].NGN[0] * quantity}</p>
                                 </div>
-                                </Link>
+                                </button>
                                 
                             </div>
                             <div className="flex items-center gap-[6px]">
