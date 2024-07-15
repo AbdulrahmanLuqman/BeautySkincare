@@ -1,12 +1,13 @@
 import { Link, useLocation } from "react-router-dom"
-import product from "../images/joesonMilk.png"
 import { Product } from "./skincarePage/Product"
 
 export const ItemsAdded = ()=>{
     const location = useLocation()
     const itemsAdded = location.state?.itemsAdded || [];
+    const quantity = location.state?.quantity
 
     console.log(itemsAdded)
+    console.log(quantity)
 
     // console.log(itemsAdded)
     return(
@@ -33,10 +34,11 @@ export const ItemsAdded = ()=>{
                             <h3 className="text-[14px] font-[500] text-[#4A4949]">TOTAL</h3>
                         </div>
                     </div>
-                    <div className="flex gap-[100px] max-[972px]:gap-[50px] py-[24px] pl-[10px] w-fit max-[972px]:items-center  max-[391px]:flex-col">
+                   
                         <div className="space-y-4">
                             {
                                 itemsAdded.map((product, index) => (
+                                <div className="flex gap-[100px] max-[972px]:gap-[50px] py-[24px] pl-[10px] w-fit max-[972px]:items-center  max-[391px]:flex-col">
                                     <div className="flex items-center gap-6 max-[972px]:flex-col">
                                         <figure>
                                             <img width={120} src={product.photos[0] !== undefined ? `https://api.timbu.cloud/images/${product.photos[0].url}`: ""} alt={product.name} />
@@ -46,27 +48,25 @@ export const ItemsAdded = ()=>{
                                             <p className="text-[12px] font-[#5B5959]">For External use Only</p>
                                         </figcaption>
                                     </div>
+                                        <div className="flex items-center gap-[75px] max-[972px]:flex-col max-[972px]:gap-[20px]">
+                                            <p className="text-[14px] font-[500] text-[#4A4949]"> <span className="hidden max-[972px]:inline">Price: </span> # 10,000</p>
+
+                                            <span className="text-[14px]">{quantity}</span>
+
+                                            <p className="text-[14px] font-[500] text-[#4A4949]"><span className="hidden max-[972px]:inline">Total: </span> # 10,000</p>
+                                        </div>
+                                </div>
+                                    
                                 ))
                             }
-                            
-                        </div>
-                        {/* <div className="flex items-center gap-[75px] max-[972px]:flex-col max-[972px]:gap-[20px]">
-                            <p className="text-[14px] font-[500] text-[#4A4949]"> <span className="hidden max-[972px]:inline">Price: </span> # 10,000</p>
-                            <div className="bg-[#FFFFFF] border border-[#A8A4A49E] rounded-[20px] flex gap-2 items-center py-[5px] px-[6px]">
-                                <button className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6 text-[14px]">-</button>
-                                <span className="text-[14px]">1</span>
-                                <button className="hover:bg-[#A8A4A490] rounded-[50%] w-6 h-6 text-[14px]">+</button>
-                            </div>
-                            <p className="text-[14px] font-[500] text-[#4A4949]"><span className="hidden max-[972px]:inline">Total: </span> # 10,000</p>
-                        </div> */}
                     </div>
                 </div>
                 <div className="space-y-4 max-[1235px]:w-[400px] max-[442px]:w-full">
                     <h2 className="text-[24px] font-[500] text-[#302E2E] border-b border-b-2 border-b-[#302E2E] py-[4px] w-full">ORDER SUMMARY</h2>
-                    <div className="border-b py-[6px] w-full flex justify-between">
+                    {/* <div className="border-b py-[6px] w-full flex justify-between">
                         <p className="text-[18px] text-[#4A4949] font-[500]">Subtotal</p>
                         <p className="text-[18px] text-[#4A4949] font-[600]"># 10,000</p>
-                    </div>
+                    </div> */}
                     <div className="border-b py-[6px] w-full flex justify-between">
                         <p className="text-[18px] text-[#4A4949] font-[500]">Total</p>
                         <p className="text-[18px] text-[#4A4949] font-[600]"># 10,000</p>

@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from "react"
 // import {productsData} from "../../data/skincareProductData"
 // import { SkincareData } from "../../data/SkincareProductsData"
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 import { useNavigate } from "react-router-dom"
 
 // api key  8104ad78708a4e6680c4201aa3378d2320240713160836808258
@@ -8,13 +9,37 @@ import { useNavigate } from "react-router-dom"
 // org id 09d3fa1d7caf45198c7d57ac510b4860
 
 export const Product = ()=>{
-    const [products, setProducts] = useState([])
-    // console.log(products)
     useEffect(()=>{
         fetch("https://timbu-get-all-products.reavdev.workers.dev/?organization_id=09d3fa1d7caf45198c7d57ac510b4860&reverse_sort=false&page=1&size=10&Appid=M11P68UGQP6B9Q4&Apikey=8104ad78708a4e6680c4201aa3378d2320240713160836808258")
         .then(res => res.json())
         .then(data => setProducts(data.items))
     }, [])
+
+
+
+    const [products, setProducts] = useState([])
+    const [currentPage, setCurrentPage] = useState(0)
+    const productsPerPage = 5
+    const startIndex = currentPage * productsPerPage
+    const endIndex = startIndex + productsPerPage
+    console.log(startIndex)
+    console.log(endIndex)
+
+    const currentProduct = products.slice(startIndex, endIndex)
+    // console.log(products)
+    
+    const next = ()=>{
+        if(endIndex < products.length)
+            setCurrentPage(currentPage + 1)
+    }
+
+    const prev = ()=> {
+        if(currentPage > 0){
+            setCurrentPage(currentPage - 1)
+        }
+    }
+
+    
 
     const navigate = useNavigate()
     const addToCart = (product)=>{
@@ -28,7 +53,7 @@ export const Product = ()=>{
             <h2></h2>
             <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[26px]">
                 {
-                    products.map((product) => (
+                    currentProduct.map((product) => (
                         <div key={product.index} className="w-full cursor-pointer h-[426px] bg-[#FFFFFF] shadow-lg shadow-gray-500/40 rounded-[10px] py-6 px-4 relative flex flex-col justify-between items-center">
                             <svg className="absolute top-4 bg-[#F8F8F8] hover:bg-[#94939340] p-[8px] rounded-[50%] right-4 cursor-pointer" width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.1599 4.20571C9.31204 3.42612 8.2023 2.99344 7.05053 2.99341C6.44091 2.99404 5.83744 3.11523 5.27483 3.34999C4.71223 3.58476 4.2016 3.92846 3.77235 4.36133C1.94145 6.20001 1.94223 9.07591 3.7739 10.9068L9.47902 16.6119C9.6113 16.8446 9.86652 16.9948 10.1599 16.9948C10.2803 16.9936 10.3988 16.9642 10.5058 16.9089C10.6129 16.8537 10.7055 16.7741 10.7761 16.6765L16.5458 10.9068C18.3775 9.07514 18.3775 6.20001 16.5443 4.35822C16.1152 3.92614 15.605 3.58314 15.043 3.34891C14.4809 3.11469 13.8781 2.99387 13.2692 2.99341C12.1175 2.9936 11.0078 3.42625 10.1599 4.20571ZM15.444 5.45847C16.6602 6.68088 16.661 8.59037 15.4456 9.80656L10.1599 15.0923L4.87415 9.80656C3.65874 8.59037 3.65952 6.68088 4.8726 5.46158C5.46396 4.87333 6.23741 4.54963 7.05053 4.54963C7.86366 4.54963 8.63399 4.87333 9.22069 5.46003L9.60975 5.84908C9.68195 5.9214 9.7677 5.97878 9.86209 6.01793C9.95649 6.05708 10.0577 6.07723 10.1599 6.07723C10.2621 6.07723 10.3633 6.05708 10.4577 6.01793C10.552 5.97878 10.6378 5.9214 10.71 5.84908L11.0991 5.46003C12.2756 4.28585 14.2691 4.28897 15.444 5.45847Z" fill="#949393"/></svg>
                             <img src={product.photos[0] !== undefined ? `https://api.timbu.cloud/images/${product.photos[0].url}`: ""} alt={product.name} />
@@ -55,6 +80,10 @@ export const Product = ()=>{
                         </div>
                     ))
                 }
+            </div>
+            <div className="w-[100px] mx-auto flex items-center justify-between">
+                <button className="border rounded-[50%] p-2 bg-[#FFC3BB]" disabled={currentPage === 0} onClick={prev}><FaArrowLeft /></button>
+                <button className="border rounded-[50%] p-2 bg-[#FFC3BB]" disabled={endIndex >= products.length} onClick={next}><FaArrowRight/></button>
             </div>
         </section>
     )

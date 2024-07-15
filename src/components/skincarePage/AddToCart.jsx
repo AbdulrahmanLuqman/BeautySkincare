@@ -10,7 +10,7 @@ export const AddToCart = ()=>{
     const location = useLocation()
     const navigate = useNavigate()
     const product = location.state.product
-    const [quantity, setQuantity] = useState(1)
+    const { quantity, setQuantity } = useContext(ItemsContext)
     // const [itemsAdded, setItemsAdded] = useState([])
 
     const increaseQuantity = ()=>{
@@ -25,7 +25,7 @@ export const AddToCart = ()=>{
     const ItemsAdded = () => {
         const updatedItems = [...itemsAdded, product];
         setItemsAdded(updatedItems);
-        navigate("/cart", { state: { itemsAdded: updatedItems } });
+        navigate("/cart", { state: { itemsAdded: updatedItems, quantity } });
     };
     return(
         <main>
